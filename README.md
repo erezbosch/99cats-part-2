@@ -1,3 +1,1 @@
-# w4d2: 99 Cats
-
-* [Project Description](https://github.com/appacademy/rails-curriculum/blob/master/projects/w4d2-99cats.md)
+99 Cats Part 2: The color scheme isn't insanely good anymore
