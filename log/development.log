@@ -9422,3 +9422,55 @@ ActionController::RoutingError (No route matches [GET] "/apple-touch-icon.png"):
   Rendered /Users/appacademy/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.0ms)
   Rendered /Users/appacademy/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.9ms)
   Rendered /Users/appacademy/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (23.2ms)
+
+
+Started GET "/cats" for 127.0.0.1 at 2015-07-15 17:21:52 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CatsController#index as HTML
+  [1m[35mCat Load (0.9ms)[0m  SELECT "cats".* FROM "cats"
+  Rendered cats/index.html.erb within layouts/application (14.1ms)
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mSessionToken Load (1.1ms)[0m  SELECT "session_tokens".* FROM "session_tokens"  WHERE "session_tokens"."user_id" = $1 AND "session_tokens"."token" = '7IX9uCX4qIN8ECwRk4mJsA'  [["user_id", 2]]
+  [1m[36mSessionToken Load (0.5ms)[0m  [1mSELECT "session_tokens".* FROM "session_tokens"  WHERE "session_tokens"."user_id" = $1 AND "session_tokens"."token" = '7IX9uCX4qIN8ECwRk4mJsA'[0m  [["user_id", 4]]
+  [1m[35mSessionToken Load (0.4ms)[0m  SELECT "session_tokens".* FROM "session_tokens"  WHERE "session_tokens"."user_id" = $1 AND "session_tokens"."token" = '7IX9uCX4qIN8ECwRk4mJsA'  [["user_id", 3]]
+  [1m[36mSessionToken Load (0.5ms)[0m  [1mSELECT "session_tokens".* FROM "session_tokens"  WHERE "session_tokens"."user_id" = $1 AND "session_tokens"."token" = '7IX9uCX4qIN8ECwRk4mJsA'[0m  [["user_id", 1]]
+Completed 200 OK in 476ms (Views: 425.5ms | ActiveRecord: 14.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-07-15 17:21:53 -0700
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2015-07-15 17:21:53 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-07-15 17:21:53 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-07-15 17:21:53 -0700
+
+
+Started GET "/assets/cats.css?body=1" for 127.0.0.1 at 2015-07-15 17:21:53 -0700
+
+
+Started GET "/assets/cat_rental_requests.css?body=1" for 127.0.0.1 at 2015-07-15 17:21:53 -0700
+
+
+Started GET "/assets/cats.js?body=1" for 127.0.0.1 at 2015-07-15 17:21:53 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-07-15 17:21:53 -0700
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-07-15 17:21:53 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-07-15 17:21:53 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-07-15 17:21:53 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-07-15 17:21:53 -0700
+
+
+Started GET "/assets/cat_rental_requests.js?body=1" for 127.0.0.1 at 2015-07-15 17:21:53 -0700

@@ -14,6 +14,7 @@
     ua: request.env["HTTP_USER_AGENT"],
     accept_language: "en-us"
   ).name %>!</p>
+  <p>Your location is <%= request.location.city %></p>
   <%= link_to "Log out", session_url, method: :delete %>
 <% else %>
   <%= link_to "Log in", new_session_url %>
