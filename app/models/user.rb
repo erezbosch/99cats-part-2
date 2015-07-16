@@ -3,8 +3,6 @@ class User < ActiveRecord::Base
   validates :user_name, length: { minimum: 5 }
   validates :password, length: { minimum: 6, allow_nil: true }
 
-  validate :ensure_session_token
-
   attr_reader :password
 
   has_many(
@@ -20,6 +18,14 @@ class User < ActiveRecord::Base
     foreign_key: :user_id,
     primary_key: :id
   )
+
+  has_many(
+    :session_tokens,
+    class_name: :SessionToken,
+    foreign_key: :user_id,
+    primary_key: :id
+  )
+
   def self.find_by_credentials(user_name, password)
     user = User.find_by(user_name: user_name)
     user && user.is_password?(password) ? user : nil
@@ -34,19 +40,13 @@ class User < ActiveRecord::Base
     BCrypt::Password.new(password_digest).is_password?(password)
   end
 
-  def reset_session_token!
-    self.session_token = generate_session_token
-    save!
-    session_token
+  def create_session_token!
+    session_tokens.create!(user_id: id, token: generate_session_token)
   end
 
   private
 
   def generate_session_token
     SecureRandom.urlsafe_base64
-  end
-
-  def ensure_session_token
-    self.session_token ||= generate_session_token
   end
 end

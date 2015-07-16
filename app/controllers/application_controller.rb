@@ -8,12 +8,19 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    @current_user ||= User.find_by(session_token: session[:session_token])
+    return @current_user if @current_user
+    User.all.each do |user|
+      unless user.session_tokens.where(token: session[:session_token]).blank?
+        @current_user = user
+        return @current_user
+      end
+    end
+    nil
   end
 
   def login_user!(user)
-    # user.reset_session_token!
-    session[:session_token] = user.session_token
+    user.create_session_token!
+    session[:session_token] = user.session_tokens.last.token
   end
 
   def redirect_if_logged_in
